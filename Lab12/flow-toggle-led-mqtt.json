@@ -1,0 +1,473 @@
+[
+    {
+        "id": "301b6348.510b2c",
+        "type": "tab",
+        "label": "Flow 6",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f2b8cba9.cbaa68",
+        "type": "split",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "splt": ",",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 410,
+        "y": 140,
+        "wires": [
+            [
+                "929e36b2.bdc118"
+            ]
+        ]
+    },
+    {
+        "id": "5c99f7fb.aba8c8",
+        "type": "rbe",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "f2b8cba9.cbaa68"
+            ]
+        ]
+    },
+    {
+        "id": "316dff9b.d45e4",
+        "type": "mqtt in",
+        "z": "301b6348.510b2c",
+        "name": "Channel 1",
+        "topic": "v1/6c12f680-f482-11eb-a2e4-b32ea624e442/things/785ba590-f482-11eb-883c-638d8ce4c23d/cmd/1",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "42290593.099bec",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "5c99f7fb.aba8c8"
+            ]
+        ]
+    },
+    {
+        "id": "97c68efc.3063c",
+        "type": "arduino out",
+        "z": "301b6348.510b2c",
+        "name": "green",
+        "pin": "20",
+        "state": "PWM",
+        "arduino": "b4543f4.a6ae6c",
+        "x": 870,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "929e36b2.bdc118",
+        "type": "function",
+        "z": "301b6348.510b2c",
+        "name": "cacheRed",
+        "func": "flow.set(\"red\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 140,
+        "wires": [
+            [
+                "5c70f219.0e671c"
+            ]
+        ]
+    },
+    {
+        "id": "632df6cd.876a18",
+        "type": "function",
+        "z": "301b6348.510b2c",
+        "name": "cacheGreen",
+        "func": "flow.set(\"green\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "97c68efc.3063c"
+            ]
+        ]
+    },
+    {
+        "id": "e6548a2f.e81098",
+        "type": "function",
+        "z": "301b6348.510b2c",
+        "name": "cacheBlue",
+        "func": "flow.set(\"blue\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "118c9889.ff5cd7"
+            ]
+        ]
+    },
+    {
+        "id": "904ba600.4614f8",
+        "type": "split",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "splt": ",",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "632df6cd.876a18"
+            ]
+        ]
+    },
+    {
+        "id": "818519a7.73c8a8",
+        "type": "rbe",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "904ba600.4614f8"
+            ]
+        ]
+    },
+    {
+        "id": "5dbc6699.87e798",
+        "type": "mqtt in",
+        "z": "301b6348.510b2c",
+        "name": "Channel 2",
+        "topic": "v1/6c12f680-f482-11eb-a2e4-b32ea624e442/things/785ba590-f482-11eb-883c-638d8ce4c23d/cmd/2",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "42290593.099bec",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "818519a7.73c8a8"
+            ]
+        ]
+    },
+    {
+        "id": "c0588b3f.99f118",
+        "type": "split",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "splt": ",",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "e6548a2f.e81098"
+            ]
+        ]
+    },
+    {
+        "id": "d0cff80e.b032b8",
+        "type": "rbe",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "c0588b3f.99f118"
+            ]
+        ]
+    },
+    {
+        "id": "3adc3255.5bb5fe",
+        "type": "mqtt in",
+        "z": "301b6348.510b2c",
+        "name": "Channel 3",
+        "topic": "v1/6c12f680-f482-11eb-a2e4-b32ea624e442/things/785ba590-f482-11eb-883c-638d8ce4c23d/cmd/3",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "42290593.099bec",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "d0cff80e.b032b8"
+            ]
+        ]
+    },
+    {
+        "id": "9938061f.223978",
+        "type": "split",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "splt": ",",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 410,
+        "y": 360,
+        "wires": [
+            [
+                "385fd581.d9852a",
+                "6731a865.c9a1a8",
+                "32356edb.8443b2"
+            ]
+        ]
+    },
+    {
+        "id": "6ef47905.b89598",
+        "type": "rbe",
+        "z": "301b6348.510b2c",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 270,
+        "y": 320,
+        "wires": [
+            [
+                "9938061f.223978"
+            ]
+        ]
+    },
+    {
+        "id": "34fa4f87.379c7",
+        "type": "mqtt in",
+        "z": "301b6348.510b2c",
+        "name": "Channel 4",
+        "topic": "v1/6c12f680-f482-11eb-a2e4-b32ea624e442/things/785ba590-f482-11eb-883c-638d8ce4c23d/cmd/4",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "42290593.099bec",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "6ef47905.b89598"
+            ]
+        ]
+    },
+    {
+        "id": "385fd581.d9852a",
+        "type": "function",
+        "z": "301b6348.510b2c",
+        "name": "FadeRed",
+        "func": "var redVal = flow.get('red') || 0;\nmsg.payload = parseInt(Number(redVal) * (msg.payload / 100));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "5c70f219.0e671c"
+            ]
+        ]
+    },
+    {
+        "id": "6731a865.c9a1a8",
+        "type": "function",
+        "z": "301b6348.510b2c",
+        "name": "FadeGreen",
+        "func": "var greenVal = flow.get('green') || 0;\nmsg.payload = parseInt(Number(greenVal) * (msg.payload / 100));\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 380,
+        "wires": [
+            [
+                "97c68efc.3063c"
+            ]
+        ]
+    },
+    {
+        "id": "32356edb.8443b2",
+        "type": "function",
+        "z": "301b6348.510b2c",
+        "name": "FadeBlue",
+        "func": "var blueVal = flow.get('blue') || 0;\nmsg.payload = parseInt(Number(blueVal) * (msg.payload / 100));\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 440,
+        "wires": [
+            [
+                "118c9889.ff5cd7"
+            ]
+        ]
+    },
+    {
+        "id": "5c70f219.0e671c",
+        "type": "arduino out",
+        "z": "301b6348.510b2c",
+        "name": "red",
+        "pin": "23",
+        "state": "PWM",
+        "arduino": "b4543f4.a6ae6c",
+        "x": 870,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "118c9889.ff5cd7",
+        "type": "arduino out",
+        "z": "301b6348.510b2c",
+        "name": "blue",
+        "pin": "21",
+        "state": "PWM",
+        "arduino": "b4543f4.a6ae6c",
+        "x": 870,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b782e9f9.b559e8",
+        "type": "comment",
+        "z": "301b6348.510b2c",
+        "name": "Lab 11 Done by Barzin Farahani (40922695)",
+        "info": "",
+        "x": 230,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "12a01c5e.149f34",
+        "type": "comment",
+        "z": "301b6348.510b2c",
+        "name": "Take Incoming Values",
+        "info": "",
+        "x": 120,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4ea663b9.b4405c",
+        "type": "comment",
+        "z": "301b6348.510b2c",
+        "name": "Split Based on Commas",
+        "info": "",
+        "x": 420,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "55976d3c.7f8304",
+        "type": "comment",
+        "z": "301b6348.510b2c",
+        "name": "Chche Value",
+        "info": "",
+        "x": 610,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "54e79ed9.e3376",
+        "type": "comment",
+        "z": "301b6348.510b2c",
+        "name": "Output To Teensy",
+        "info": "",
+        "x": 860,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "42290593.099bec",
+        "type": "mqtt-broker",
+        "name": "mqtt.mydevices.com",
+        "broker": "mqtt.mydevices.com",
+        "port": "1883",
+        "clientid": "785ba590-f482-11eb-883c-638d8ce4c23d",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b4543f4.a6ae6c",
+        "type": "arduino-board",
+        "device": "COM3"
+    }
+]
